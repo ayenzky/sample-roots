@@ -41,6 +41,6 @@ module.exports =
   jade:
     pretty: true
 
-  before:->
+  after:->
     glob '**/*.html', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, strict:true, (er, files)->
       console.log(files);
