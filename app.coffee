@@ -59,15 +59,16 @@ module.exports =
       method: 'GET'
     }
 
-
     result = ""
 
     stream = readdirp({root:path.join(__dirname), fileFilter:['**/*.html'], directoryFilter: ['!node_modules', '!admin']})
     stream.on 'data', (entry)->
-      str  = entry.path
+
+      url_path = entry.path
+      str = url_path.replace(/\\/g, "/")
       file = str.substr(6);
 
-      result += ""
+
       result += "<url><loc>" + options.protocol + "//" + options.hostname + file + "</loc></url>" + "\n";
 
       fs.writeFile 'public/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) ->
