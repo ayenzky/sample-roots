@@ -12,6 +12,9 @@ glob         = require 'glob'
 readdirp     = require 'readdirp'
 path         = require 'path'
 http         = require 'http'
+https        = require 'https'
+
+
 
 
 
@@ -53,6 +56,17 @@ module.exports =
     glob '**/*.html', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, strict:true, (er, files)->
       console.log(files);
 
+    options = {
+      hostname: 'lanarkshirechamber.co.uk',
+      protocol: 'https:',
+      port:443,
+      path: '/',
+      method: 'GET'
+    }
+
+
+    console.log(options.hostname);
+
     result = ""
 
     stream = readdirp({root:path.join(__dirname), fileFilter:'**/*.html', directoryFilter: '!node_modules'})
@@ -62,7 +76,7 @@ module.exports =
       console.log(file);
 
       result += ""
-      result += "<url><loc>" + file + "</loc></url>" + "\n";
+      result += "<url><loc>" + options.protocol + "//" + options.hostname + file + "</loc></url>" + "\n";
 
       fs.writeFile 'public/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) -> if err then console.log err
 
