@@ -8,11 +8,11 @@ records      = require 'roots-records'
 collections  = require 'roots-collections'
 excerpt      = require 'html-excerpt'
 moment       = require 'moment'
-glob         = require 'glob'
 readdirp     = require 'readdirp'
 path         = require 'path'
 http         = require 'http'
 https        = require 'https'
+
 
 
 
@@ -36,7 +36,7 @@ module.exports =
     collections(folder: 'posts', layout: 'post'),
     collections(folder: 'page', layout: 'post'),
     js_pipeline(files: 'assets/js/*.coffee'),
-    css_pipeline(files: 'assets/css/*.styl')
+    css_pipeline(files: 'assets/css/*.styl'),
   ]
 
   stylus:
@@ -50,14 +50,15 @@ module.exports =
     pretty: true
 
 
-  after:->
+  before:->
 
     options = {
       hostname: 'sitemap.netlify.com',
-      protocol: 'https://',
+      protocol: 'https:',
       port:443,
       method: 'GET'
     }
+
 
     result = ""
 
@@ -67,9 +68,8 @@ module.exports =
       file = str.substr(6);
 
       result += ""
-      result += "<url><loc>" + options.protocol + options.hostname + file + "</loc></url>" + "\n";
+      result += "<url><loc>" + options.protocol + "//" + options.hostname + file + "</loc></url>" + "\n";
 
-      fs.writeFile 'public/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) ->
+      fs.writeFile 'views/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) ->
         if err then console.log err
-
-      console.log(result);
+        console.log(result);
