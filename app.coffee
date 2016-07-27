@@ -57,7 +57,7 @@ module.exports =
       console.log(files);
 
     options = {
-      hostname: 'lanarkshirechamber.co.uk',
+      hostname: 'sitemap.netlify.com',
       protocol: 'https:',
       port:443,
       path: '/',
