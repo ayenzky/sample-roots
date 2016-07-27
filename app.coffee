@@ -11,6 +11,9 @@ glob         = require 'glob'
 readdirp     = require 'readdirp'
 path         = require 'path'
 
+
+
+
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
 module.exports =
@@ -43,10 +46,20 @@ module.exports =
   jade:
     pretty: true
 
+
   after:->
     glob '**/*.html', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, strict:true, (er, files)->
       console.log(files);
 
+    result = ""
+
     stream = readdirp({root:path.join(__dirname), fileFilter:'**/*.html', directoryFilter: '!node_modules'})
     stream.on 'data', (entry)->
-      console.log(entry.path);
+      str  = entry.path
+      file = str.substr(6);
+      console.log(file);
+
+      result += ""
+      result += "<url><loc>" + file + "</loc></url>" + "\n";
+
+      console.log(result);
