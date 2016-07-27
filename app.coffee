@@ -7,6 +7,7 @@ records      = require 'roots-records'
 collections  = require 'roots-collections'
 excerpt      = require 'html-excerpt'
 moment       = require 'moment'
+glob         = require 'glob'
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
@@ -39,3 +40,7 @@ module.exports =
 
   jade:
     pretty: true
+
+  after:->
+    glob '**/*.md', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, strict:true, (er, files)->
+      console.log(files);
