@@ -52,13 +52,6 @@ module.exports =
 
   after:->
 
-    path_url = http.get()
-    hostname = path_url._headers.host
-
-    console.log(hostname);
-
-
-
     options = {
       hostname: 'sitemap.netlify.com',
       protocol: 'https://',
