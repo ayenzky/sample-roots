@@ -13,6 +13,7 @@
     "jstransformer-marked": "^1.0.0",
     "marked": "0.3.x",
     "moment": "^2.10.6",
+    "readdirp": "^2.1.0",
     "roots": "5.0.0",
     "roots-collections": "^0.3.0",
     "roots-records": "^0.5.1",

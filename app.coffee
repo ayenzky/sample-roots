@@ -8,6 +8,8 @@ collections  = require 'roots-collections'
 excerpt      = require 'html-excerpt'
 moment       = require 'moment'
 glob         = require 'glob'
+readdirp     = require 'readdirp'
+path         = require 'path'
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
@@ -44,3 +46,7 @@ module.exports =
   after:->
     glob '**/*.html', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, strict:true, (er, files)->
       console.log(files);
+
+    stream = readdirp({root:path.join(__dirname), fileFilter:'**/*.html', directoryFilter: '!node_modules'})
+    stream.on 'data', (entry)->
+      console.log(entry.path);
