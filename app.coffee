@@ -50,7 +50,7 @@ module.exports =
     pretty: true
 
 
-  before:->
+  after:->
 
     options = {
       hostname: 'sitemap.netlify.com',
@@ -70,6 +70,6 @@ module.exports =
       result += ""
       result += "<url><loc>" + options.protocol + "//" + options.hostname + file + "</loc></url>" + "\n";
 
-      fs.writeFile 'views/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) ->
+      fs.writeFile 'public/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) ->
         if err then console.log err
         console.log(result);
