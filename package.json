@@ -15,6 +15,7 @@
     "roots-collections": "^0.3.0",
     "roots-records": "^0.5.1",
     "rupture": "0.6.x",
-    "stylus": "0.52.x"
+    "stylus": "0.52.x",
+    "roots": "5.0.0"
   }
 }
