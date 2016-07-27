@@ -58,7 +58,7 @@ module.exports =
 
     options = {
       hostname: 'sitemap.netlify.com',
-      protocol: 'https:',
+      protocol: 'https://',
       port:443,
       path: '/',
       method: 'GET'
@@ -69,14 +69,13 @@ module.exports =
 
     result = ""
 
-    stream = readdirp({root:path.join(__dirname), fileFilter:'**/*.html', directoryFilter: '!node_modules'})
+    stream = readdirp({root:path.join(__dirname), fileFilter:'**/*.html', directoryFilter: ['!node_modules', '!admin']})
     stream.on 'data', (entry)->
       str  = entry.path
       file = str.substr(6);
-      console.log(file);
 
       result += ""
-      result += "<url><loc>" + options.protocol + "//" + options.hostname + file + "</loc></url>" + "\n";
+      result += "<url><loc>" + options.protocol + options.hostname + file + "</loc></url>" + "\n";
 
       fs.writeFile 'public/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) -> if err then console.log err
 
