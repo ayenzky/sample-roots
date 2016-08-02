@@ -1,7 +1,7 @@
 ---
 title: About Us
 banner: /img/uploads/citadel.jpg
-shortdesc: Music festival 2016 held 6th of the month every year held on different place
+shortdesc: Music festival 2016 held 7th of the month every year held on different place
 cmsUserSlug: about-us
 date: now
 ---
