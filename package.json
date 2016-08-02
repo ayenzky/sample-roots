@@ -20,6 +20,6 @@
     "rupture": "0.6.x",
     "stylus": "0.52.x",
     "when": "^3.7.7",
-    "roots-webriq-sitemap": "1.0.0"
+    "roots-webriq-sitemap": "1.0.1"
   }
 }

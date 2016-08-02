@@ -38,9 +38,9 @@ module.exports =
     css_pipeline(files: 'assets/css/*.styl'),
 
     roots_webriq_sitemap({
-      url: "https://sitemap.netlify.com/",
-      directory: "!admin",
-      folder: "public",
+      url: "https://sitemap.netlify.com",
+      directory: ["!admin", "!node_modules"],
+      folder: path.join(__dirname),
       file: "**/*.html",
       output: "views/"
     })
