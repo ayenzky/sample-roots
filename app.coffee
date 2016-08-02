@@ -42,7 +42,7 @@ module.exports =
       directory: ["!admin", "!node_modules"],
       folder: path.join(__dirname),
       file: "**/*.html",
-      output: "public/"
+      output: "views/"
     })
   ]
 
