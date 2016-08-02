@@ -8,6 +8,7 @@ records      = require 'roots-records'
 collections  = require 'roots-collections'
 excerpt      = require 'html-excerpt'
 moment       = require 'moment'
+readdirp     = require 'readdirp'
 path         = require 'path'
 http         = require 'http'
 https        = require 'https'
@@ -37,13 +38,7 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
 
-    roots_webriq_sitemap({
-      url: "https://sitemap.netlify.com",
-      directory: ["!admin", "!node_modules"],
-      folder: path.join(__dirname),
-      file: "**/*.html",
-      output: "views/"
-    })
+
   ]
 
   stylus:
@@ -57,4 +52,25 @@ module.exports =
     pretty: true
 
   after:->
+
+    options = {
+      url: 'https://sitemap.netlify.com',
+      file: '**/*.html',
+      directory: '!node_modules', '!admin'
+    }
+
+    result = ""
+
+    stream = readdirp({root:path.join(__dirname), fileFilter:[options.file], directoryFilter: [options.directory]})
+    stream.on 'data', (entry)->
+
+      url_path = entry.path
+      str = url_path.replace(/\\/g, "/")
+      file = str.substr(6);
+
+      result += "<url><loc>" + options.url + file + "</loc></url>" + "\n";
+
+      fs.writeFile 'public/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) ->
+        if err then console.log err
+        # console.log(result);
 
