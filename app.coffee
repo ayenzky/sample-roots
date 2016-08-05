@@ -37,12 +37,12 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
 
-    roots_webriq_sitemap({
+    roots_webriq_sitemap {
       url: "https://sitemap.netlify.com",
       directory: ["!admin", "!node_modules"],
       folder: path.join(__dirname),
       file: "**/*.html"
-    })
+    }
   ]
 
   stylus:
