@@ -41,8 +41,7 @@ module.exports =
       url: "https://sitemap.netlify.com",
       directory: ["!admin", "!node_modules"],
       folder: path.join(__dirname),
-      file: "**/*.html",
-      output: "/"
+      file: "**/*.html"
     })
   ]
 
