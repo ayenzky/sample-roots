@@ -12,7 +12,7 @@ moment       = require 'moment'
 path         = require 'path'
 http         = require 'http'
 https        = require 'https'
-roots_webriq_sitemap = require 'roots-webriq-sitemap'
+roots_webriq_sitemap = require 'webriq-roots-sitemap-v2'
 
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
