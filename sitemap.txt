@@ -41,7 +41,6 @@
 <url>
 <loc>https://sitemap.netlify.com/posts/2014-06-12-season-6-food-chain.html</loc>
 </url>
-<url>
-<loc>https://sitemap.netlify.com/posts/this-is-a-test.html</loc>
+</urlset>c>https://sitemap.netlify.com/posts/this-is-a-test.html</loc>
 </url>
 </urlset>
