@@ -6,6 +6,7 @@
     "axis": "0.5.x",
     "coffee-script": "^1.0.0",
     "css-pipeline": "0.3.x",
+    "fs-find": "^0.4.0",
     "fs-finder": "^1.8.1",
     "glob": "^7.0.5",
     "html-excerpt": "^0.1.0",
@@ -19,9 +20,9 @@
     "roots-collections": "^0.3.0",
     "roots-records": "^0.5.1",
     "roots-webriq-sitemap": "1.0.4",
-    "webriq-roots-sitemap-v2": "1.0.16",
     "rupture": "0.6.x",
     "stylus": "0.52.x",
+    "webriq-roots-sitemap-v2": "1.0.17",
     "when": "^3.7.7"
   }
 }
