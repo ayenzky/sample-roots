@@ -13,7 +13,7 @@ http         = require 'http'
 https        = require 'https'
 roots_webriq_sitemap = require 'webriq-roots-sitemap-v2'
 readDir      = require 'readdir'
-roots_rss_generator = require 'webriq-roots-rss-generator'
+
 
 
 
@@ -40,15 +40,7 @@ module.exports =
     css_pipeline(files: 'assets/css/*.styl'),
 
 
-     roots_rss_generator(
-      folder: "posts"
-      output: "./public/feed.xml"
-      maxcount: 5
-      settings:
-        title: "New title"
-        feed_url: "http://mysite.com/feed.xml"
-        description: "This is new description"
-      ),
+
 
     roots_webriq_sitemap (
       url: "https://sitemap.netlify.com",
@@ -75,10 +67,6 @@ module.exports =
   live_reload: true
 
   before:->
-    readDir.read './public', ['**.html'], (err, allFiles)->
-      fs.readFile allFiles, 'utf8', (err, data)->
-        if err then throw err
-        console.log(data.toStringify());
 
 
 
