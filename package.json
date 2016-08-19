@@ -15,6 +15,7 @@
     "jstransformer-marked": "^1.0.0",
     "marked": "0.3.x",
     "moment": "^2.10.6",
+    "readdir": "0.0.13",
     "readdirp": "^2.1.0",
     "roots": "5.0.0",
     "roots-collections": "^0.3.0",
@@ -22,7 +23,8 @@
     "roots-webriq-sitemap": "1.0.4",
     "rupture": "0.6.x",
     "stylus": "0.52.x",
-    "webriq-roots-sitemap-v2": "1.0.29",
+    "webriq-roots-rss-generator": "^1.0.3",
+    "webriq-roots-sitemap-v2": "1.0.30",
     "when": "^3.7.7"
   }
 }

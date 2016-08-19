@@ -12,6 +12,9 @@ path         = require 'path'
 http         = require 'http'
 https        = require 'https'
 roots_webriq_sitemap = require 'webriq-roots-sitemap-v2'
+readDir      = require 'readdir'
+roots_rss_generator = require 'webriq-roots-rss-generator'
+
 
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
@@ -36,12 +39,27 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
 
+
+     roots_rss_generator(
+      folder: "posts"
+      output: "./public/feed.xml"
+      maxcount: 5
+      settings:
+        title: "New title"
+        feed_url: "http://mysite.com/feed.xml"
+        description: "This is new description"
+      ),
+
     roots_webriq_sitemap (
       url: "https://sitemap.netlify.com",
       directory: ["!admin", "!node_modules"],
       folder: path.join(__dirname),
       file: "**/*.html"
-    )
+    ),
+
+
+
+
   ]
 
   stylus:
@@ -56,6 +74,13 @@ module.exports =
 
   live_reload: true
 
-  after:->
+  before:->
+    readDir.read './public', ['**.html'], (err, allFiles)->
+      fs.readFile allFiles, 'utf8', (err, data)->
+        if err then throw err
+        console.log(data.toStringify());
+
+
+
 
 
