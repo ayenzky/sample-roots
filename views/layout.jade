@@ -9,8 +9,11 @@ html
 
     title= records.site.name
 
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
 
+    script(type="text/javascript", src="js/tipuesearch_set.js")
+    script(type="text/javascript", src="js/tipuesearch.min.js")
+    link(rel="stylesheet", type="text/css", href="css/tipuesearch.css")
 
     script(src="/js/skel.min.js")
     script(src="/js/skel-layers.min.js")
@@ -23,7 +26,8 @@ html
       link(rel="stylesheet", href="/css/style-desktop.css")
 
     link(rel='stylesheet', href='/css/custom.css')
-    link(rel="stylesheet", type="text/css", href="/css/tipuesearch.css")
+
+
   body
     include ./includes/_header.jade
 
@@ -33,7 +37,13 @@ html
 
     include ./includes/_footer.jade
 
-    script(type="text/javascript", src="/js/tipuesearch_set.js")
-    script(type="text/javascript", src="/js/tipuesearch.min.js")
+    //- script.
+    //-   $(document).ready(function() {
+    //-     $('#tipue_search_input').tipuesearch();
+    //-   });
+
+    //- != js()
+
+
     script(type="text/javascript", src="/js/custom.js")
 

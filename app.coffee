@@ -13,8 +13,8 @@ http         = require 'http'
 https        = require 'https'
 roots_webriq_sitemap = require 'webriq-roots-sitemap-v2'
 readDir      = require 'readdir'
-
-
+roots_markdown_to_json = require 'webriq-roots-markdown-to-json'
+cleanUrls = require 'clean-urls'
 
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
@@ -39,7 +39,7 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
 
-
+    roots_markdown_to_json(folder:['page/**.md', 'posts/**.md']),
 
 
     roots_webriq_sitemap (
@@ -66,7 +66,9 @@ module.exports =
 
   live_reload: true
 
-  before:->
+  server:
+    clean_urls: true
+
 
 
 
