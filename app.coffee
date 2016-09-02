@@ -39,13 +39,16 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
 
-    roots_markdown_to_json(folder:['page/**.md', 'posts/**.md']),
+    roots_markdown_to_json(
+      jsonoutput: "data",
+      folder:['page/**.md', 'posts/**.md']
+    ),
 
 
     roots_webriq_sitemap (
-      url: "https://sitemap.netlify.com",
+      url: "https://sitemap.netlify.com/",
       directory: ["!admin", "!node_modules"],
-      folder: path.join(__dirname),
+      folder: "public",
       file: "**/*.html"
     ),
 
