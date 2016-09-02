@@ -46,8 +46,8 @@ module.exports =
 
 
     roots_webriq_sitemap (
-      url: "https://sitemap.netlify.com/",
-      directory: ["!admin", "!node_modules"],
+      url: "https://sitemap.netlify.com",
+      directory: ["!admin"],
       folder: "public",
       file: "**/*.html"
     ),

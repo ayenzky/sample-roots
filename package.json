@@ -25,7 +25,7 @@
     "rupture": "0.6.x",
     "stylus": "0.52.x",
     "webriq-roots-rss-generator": "^1.0.3",
-    "webriq-roots-sitemap-v2": "1.0.35",
+    "webriq-roots-sitemap-v2": "1.0.36",
     "webriq-roots-markdown-to-json": "1.0.5",
     "when": "^3.7.7"
   }
